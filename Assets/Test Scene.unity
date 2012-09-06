@@ -151,6 +151,7 @@ GameObject:
   - 114: {fileID: 1867895575}
   - 114: {fileID: 1867895574}
   - 114: {fileID: 1867895576}
+  - 114: {fileID: 1867895577}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -279,6 +280,21 @@ MonoBehaviour:
   scratchTexture: {fileID: 2800000, guid: 6205c27cc031f4e66b8ea90d1bfaa158, type: 3}
   shaderRGB: {fileID: 4800000, guid: 5d7f4c401ae8946bcb0d6ff68a9e7466, type: 3}
   shaderYUV: {fileID: 4800000, guid: 0e447868506ba49f0a73235b8a8b647a, type: 3}
+--- !u!114 &1867895577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867895568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a447fe9c9f904394ad76d7b3025f4b2, type: 3}
+  m_Name: 
+  intensity: .375
+  blur: .100000001
+  blurSpread: 1.5
+  vignetteShader: {fileID: 4800000, guid: 1f31e1939a6d94f90af6a748b12ffac1, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: 0ad15afe6995342958200f1a8dfa8042, type: 3}
 --- !u!1 &1981271421
 GameObject:
   m_ObjectHideFlags: 0

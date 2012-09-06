@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 6a447fe9c9f904394ad76d7b3025f4b2
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - vignetteShader: {fileID: 4800000, guid: 1f31e1939a6d94f90af6a748b12ffac1, type: 3}
+  - separableBlurShader: {fileID: 4800000, guid: 0ad15afe6995342958200f1a8dfa8042,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
