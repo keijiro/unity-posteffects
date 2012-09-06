@@ -247,7 +247,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867895568}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1352984e3c6465088f6cc7c4ce6e22, type: 3}
   m_Name: 
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867895568}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a88a26a276b4e47619ce2c5adad33fab, type: 3}
   m_Name: 
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867895568}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a447fe9c9f904394ad76d7b3025f4b2, type: 3}
   m_Name: 
@@ -294,7 +294,6 @@ MonoBehaviour:
   blur: .100000001
   blurSpread: 1.5
   vignetteShader: {fileID: 4800000, guid: 1f31e1939a6d94f90af6a748b12ffac1, type: 3}
-  separableBlurShader: {fileID: 4800000, guid: 0ad15afe6995342958200f1a8dfa8042, type: 3}
 --- !u!1 &1981271421
 GameObject:
   m_ObjectHideFlags: 0

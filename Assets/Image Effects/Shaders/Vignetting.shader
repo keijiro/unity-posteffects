@@ -1,4 +1,4 @@
-Shader "Post FX/VignettingShader" {
+Shader "Hidden/Vignetting" {
 	Properties {
 		_MainTex ("Base", 2D) = "" {}
 	}
