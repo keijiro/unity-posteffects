@@ -16,28 +16,37 @@ Shader "Hidden/Vignetting" {
 
 			uniform sampler2D _MainTex;
 
-			uniform sampler2D vignetteTex;
-			uniform lowp float intensity;
-			uniform lowp float blur;
-			varying lowp vec2 uv;
+			uniform sampler2D blur_texture;
+			uniform sampler2D noise_texture;
+
+			uniform vec4 noise_uvmod;
+			uniform lowp float vignette_intensity;
+			uniform lowp float noise_intensity;
+			uniform lowp float blur_amount;
+
+			varying lowp vec2 uv[2];
 
 			#ifdef VERTEX
 			void main() {
 	            gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-				uv = gl_MultiTexCoord0.xy;
+				uv[0] = gl_MultiTexCoord0.xy;
+				uv[1] = gl_MultiTexCoord0.xy * noise_uvmod.zw + noise_uvmod.xy;
 			}
 			#endif
 
 			#ifdef FRAGMENT
 			void main() {
-				lowp vec4 color = texture2D(_MainTex, uv);
-				lowp vec4 colorBlur = texture2D(vignetteTex, uv);
+				lowp vec4 source = texture2D(_MainTex, uv[0]);
+				lowp vec4 blur = texture2D(blur_texture, uv[0]);
+				lowp vec4 noise = texture2D(noise_texture, uv[1]);
 
-				vec2 coord = (uv - 0.5) * 2.0;
+				vec2 coord = (uv[0] - 0.5) * 2.0;
 				lowp float coord2 = dot(coord, coord);
+				lowp float mask = 1.0 - coord2 * vignette_intensity * 0.1;
 
-				lowp float mask = 1.0 - coord2 * intensity * 0.1;
-				gl_FragColor = mix(color, colorBlur, min(blur * coord2, 1.0)) * mask;
+				noise = (noise * 2.0 - 1.0) * noise_intensity;
+
+				gl_FragColor = mix(source, blur, min(blur_amount * coord2, 1.0)) * mask + noise;
 			}
 			#endif
 
