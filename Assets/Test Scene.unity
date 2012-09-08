@@ -151,6 +151,7 @@ GameObject:
   - 114: {fileID: 1867895575}
   - 114: {fileID: 1867895574}
   - 114: {fileID: 1867895576}
+  - 114: {fileID: 1867895577}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -274,6 +275,34 @@ MonoBehaviour:
   noiseScale: 1.60000002
   shader: {fileID: 4800000, guid: 1f31e1939a6d94f90af6a748b12ffac1, type: 3}
   noiseTexture: {fileID: 2800000, guid: ffa9c02760c2b4e8eb9814ec06c4b05b, type: 3}
+--- !u!114 &1867895577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867895568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ab3803bb3914416812c489ff4d7f08, type: 3}
+  m_Name: 
+  filterType: 0
+  preview: 0
+  previewScale: {x: 1, y: 1, z: 1}
+  movementScale: 1
+  rotationScale: 1
+  maxVelocity: 8
+  minVelocity: .100000001
+  velocityScale: .375
+  softZDistance: .00999999978
+  velocityDownsample: 1
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  shader: {fileID: 4800000, guid: 3e1f6883cf3a14f1888b6991ee48cca4, type: 3}
+  replacementClear: {fileID: 4800000, guid: ce5b7d0e6b5ca414d82e87b0a1acb926, type: 3}
+  noiseTexture: {fileID: 2800000, guid: 7973812d532a9491ebd22814db961cb2, type: 3}
+  showVelocity: 0
+  showVelocityScale: 1
 --- !u!1 &1981271421
 GameObject:
   m_ObjectHideFlags: 0
