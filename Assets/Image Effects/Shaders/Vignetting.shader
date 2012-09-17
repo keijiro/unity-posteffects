@@ -92,5 +92,43 @@ Shader "Hidden/Vignetting" {
 
 			ENDGLSL
 		}
+
+		// Downsampling pass
+		Pass {
+			Cull Off
+			ZTest Always
+			ZWrite Off
+			Fog { Mode off }
+
+			GLSLPROGRAM
+
+			uniform sampler2D _MainTex;
+			uniform vec2 _MainTex_TexelSize;
+			varying lowp vec2 uv[4];
+
+			#ifdef VERTEX
+			void main() {
+	            gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	            float dx = _MainTex_TexelSize.x;
+	            float dy = _MainTex_TexelSize.y;
+				uv[0] = gl_MultiTexCoord0.xy + vec2(-dx, -dy);
+				uv[1] = gl_MultiTexCoord0.xy + vec2(-dx,  dy);
+				uv[2] = gl_MultiTexCoord0.xy + vec2( dx, -dy);
+				uv[3] = gl_MultiTexCoord0.xy + vec2( dx,  dy);
+			}
+			#endif
+
+			#ifdef FRAGMENT
+			void main() {
+				gl_FragColor = 0.25 * (
+					texture2D(_MainTex, uv[0]) +
+					texture2D(_MainTex, uv[1]) +
+					texture2D(_MainTex, uv[2]) +
+					texture2D(_MainTex, uv[3]));
+			}
+			#endif
+
+			ENDGLSL
+		}
 	}
 }

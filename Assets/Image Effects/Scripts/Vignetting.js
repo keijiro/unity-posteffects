@@ -38,12 +38,10 @@ class Vignetting extends PostEffectsBase {
             noiseScale * Screen.height / noiseTexture.height
         );
 
-        var half = RenderTexture.GetTemporary(source.width / 2, source.height / 2, 0);
         var quarter1 = RenderTexture.GetTemporary(source.width / 4, source.height / 4, 0);
         var quarter2 = RenderTexture.GetTemporary(source.width / 4, source.height / 4, 0);
 
-        Graphics.Blit(source, half);
-        Graphics.Blit(half, quarter1);
+        Graphics.Blit(source, quarter1, material, 2);
 
         material.SetVector("offsets", Vector4(0, bdy, 0, 0));
         Graphics.Blit(quarter1, quarter2, material, 1);
@@ -58,7 +56,6 @@ class Vignetting extends PostEffectsBase {
         material.SetFloat("blur_amount", blurAmount);
         Graphics.Blit(source, destination, material, 0);
         
-        RenderTexture.ReleaseTemporary(half);           
         RenderTexture.ReleaseTemporary(quarter1);    
         RenderTexture.ReleaseTemporary(quarter2);  
     }
