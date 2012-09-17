@@ -38,7 +38,7 @@ Shader "Hidden/Vignetting" {
 			void main() {
 				lowp vec4 source = texture2D(_MainTex, uv[0]);
 				lowp vec4 blur = texture2D(blur_texture, uv[0]);
-				lowp vec4 noise = texture2D(noise_texture, uv[1]);
+				lowp vec4 noise = texture2D(noise_texture, uv[1]).wwww;
 
 				vec2 coord = (uv[0] - 0.5) * 2.0;
 				lowp float coord2 = dot(coord, coord);

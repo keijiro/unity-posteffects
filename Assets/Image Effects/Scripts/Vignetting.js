@@ -9,7 +9,7 @@ class Vignetting extends PostEffectsBase {
     @Range(0.0, 1.5) var blurAmount = 0.1;
     @Range(0.0, 4.0) var blurSpread = 1.5;
     @Range(0.0, 1.0) var noiseIntensity = 0.2;
-    @Range(1.0, 4.0) var noiseScale = 2.0;
+    @Range(0.25, 1.5) var noiseScale = 1.0;
 
     @HideInInspector var shader : Shader;
     @HideInInspector var noiseTexture : Texture2D;
